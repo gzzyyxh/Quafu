@@ -83,7 +83,9 @@ Falco is a small soc which has a certain number of peripherals mounted on the wi
 
 ```
 $sudo apt update
+
 $sudo install build-essential gcc make perl dkms git gcc-riscv64-unknown-elf gdb-multiarch
+
 $git clone https://github.com/gzzyyxh/Falco
 ```
 
