@@ -1,6 +1,6 @@
 # Falco
 
-Falco is a small soc which has a certain number of peripherals mounted on the wishbone bus, and its core is a 32-bit pipeline and sequential processor written in verilog(for running [RVOS](https://github.com/plctlab/riscv-operating-system-mooc)).
+Falco is a small soc which has a certain number of peripherals mounted on the [wishbone bus](https://opencores.org/projects/wb_conmax), and its core is a 32-bit pipeline and sequential processor written in verilog(for running [RVOS](https://github.com/plctlab/riscv-operating-system-mooc)).
 
 ## Implemented ISAs
 
@@ -142,3 +142,7 @@ Select ```serial port steup``` and configure serial device as the corresponding 
 ## Sources
 
 * [emulsiV](https://guillaume-savaton-eseo.github.io/emulsiV/)
+
+* [wishbone IP core](https://opencores.org/projects/wb_conmax)
+
+* [UART IP core](https://opencores.org/projects/uart6551)
