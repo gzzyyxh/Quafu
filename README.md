@@ -93,6 +93,8 @@ Synthesis via Quartus Prime
 
 ```$cd cpu```
 
+You can also try compiling with open source tools such as ```iverilog```
+
 ### Notice
 
 * Your FPGA board must meet the following conditions:
