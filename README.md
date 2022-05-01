@@ -81,44 +81,58 @@ Falco is a small soc which has a certain number of peripherals mounted on the wi
 
 ## Geting Started
 
-```$git clone https://github.com/gzzyyxh/Falco```
+```
+$sudo apt update
+$sudo install build-essential gcc make perl dkms git gcc-riscv64-unknown-elf gdb-multiarch
+$git clone https://github.com/gzzyyxh/Falco
+```
 
 Synthesis via Quartus Prime
 
 ```$cd cpu```
 
-**Notice**
+### Notice
 
 * Your FPGA board must meet the following conditions:
 
+  * logic elements >= 10,877
 
-$ logic elements >= 10,877
-
-$ registers >= 4,155
-
-
-* ROM and RAM are implemented using Altera IP core. You should pay attention to this.
+  * registers >= 4,155
 
 The actual resource usage depends on EDA, and the above data is for reference only
 
-```cd os```
+* ROM and RAM are implemented using Altera IP core. You should pay attention to this.
 
-Compile RVOS
+```$cd os```
 
-```make```
+Compile [RVOS](https://github.com/plctlab/riscv-operating-system-mooc)
+
+```$make```
 
 Connecting serial port equipment
 
-```sudo apt-get install minicom```
+```$sudo apt-get install minicom```
 
-```sudo minicom -s```
+```$sudo minicom -s```
 
 Select ```serial port steup``` and configure serial device as the corresponding board, ```Bps/Par/Bits``` is ```115200 8N1```.
 
-```sudo minicom```
+```$sudo minicom```
 
 ![welcome to Falco](./img/welcome.png)
 
 ## Refrences
 
+* [RISC-V Specification Volume 1, Unprivileged Spec v.](https://github.com/riscv/riscv-isa-manual/releases/download/Ratified-IMAFDQC/riscv-spec-20191213.pdf)
+
+* [RISC-V Specification Volume 2, Privileged Spec v.](https://github.com/riscv/riscv-isa-manual/releases/download/Priv-v1.12/riscv-privileged-20211203.pdf)
+
+* [RISC-V-Reader-Chinese-v2p1](http://riscvbook.com/chinese/RISC-V-Reader-Chinese-v2p1.pdf)
+
+* [RVOS](https://github.com/plctlab/riscv-operating-system-mooc)
+
+* [xv6-riscv](https://github.com/mit-pdos/xv6-riscv)
+
 ## Sources
+
+* [emulsiV](https://guillaume-savaton-eseo.github.io/emulsiV/)
