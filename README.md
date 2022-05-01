@@ -89,11 +89,11 @@ $sudo apt install build-essential gcc make perl dkms git gcc-riscv64-unknown-elf
 $git clone https://github.com/gzzyyxh/Falco
 ```
 
-Synthesis via Quartus Prime
+Synthesis via [Quartus Prime](https://www.intel.cn/content/www/cn/zh/software/programmable/quartus-prime/download.html)
 
 ```$cd cpu```
 
-You can also try compiling with open source tools such as ```iverilog```
+You can also try compiling with open source tools such as ```iverilog``` and ```verilator```, or other EDA software such as [vivado](https://china.xilinx.com/support/download.html).
 
 ### Notice
 
