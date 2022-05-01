@@ -1,6 +1,6 @@
 # Falco
 
-Falco is a small soc which has a certain number of peripherals mounted on the wishbone bus, and its core is a 32-bit pipeline and sequential processor written in verilog.
+Falco is a small soc which has a certain number of peripherals mounted on the wishbone bus, and its core is a 32-bit pipeline and sequential processor written in verilog(for running [RVOS](https://github.com/plctlab/riscv-operating-system-mooc)).
 
 ## Implemented ISAs
 
@@ -28,32 +28,32 @@ Falco is a small soc which has a certain number of peripherals mounted on the wi
 
 * Address space(wishbone B2):
 
-                            |----0xffff_ffff----|
-                            |                   |
-                            |                   |
-                            |                   |
-                            |                   |
-                            |                   |
-                            |      unused       |
-                            |                   |
-                            |                   |
-                            |                   |
-                            |                   |
-                            |                   |
-                            |                   |
-                            |-------------------| <--- 0x6000_0000
-                            |        ram        |
-                            |-------------------| <--- 0x5000_0000
-                            |       clint       |
-                            |-------------------| <--- 0x4000_0000
-                            |        plic       |
-                            |-------------------| <--- 0x3000_0000
-                            |        gpio       |
-                            |-------------------| <--- 0x2000_0000
-                            |        uart       |
-                            |-------------------| <--- 0x1000_0000
-                            |        rom        |
-                            |-------------------| <--- 0x0000_0000
+                                |----0xffff_ffff----|
+                                |                   |
+                                |                   |
+                                |                   |
+                                |                   |
+                                |                   |
+                                |      unused       |
+                                |                   |
+                                |                   |
+                                |                   |
+                                |                   |
+                                |                   |
+                                |                   |
+                                |-------------------| <--- 0x6000_0000
+                                |        ram        |
+                                |-------------------| <--- 0x5000_0000
+                                |       clint       |
+                                |-------------------| <--- 0x4000_0000
+                                |        plic       |
+                                |-------------------| <--- 0x3000_0000
+                                |        gpio       |
+                                |-------------------| <--- 0x2000_0000
+                                |        uart       |
+                                |-------------------| <--- 0x1000_0000
+                                |        rom        |
+                                |-------------------| <--- 0x0000_0000
 
 * ...
 
@@ -111,9 +111,11 @@ Compile [RVOS](https://github.com/plctlab/riscv-operating-system-mooc)
 
 Connecting serial port equipment
 
-```$sudo apt-get install minicom```
+```
+$sudo apt-get install minicom
 
-```$sudo minicom -s```
+$sudo minicom -s
+```
 
 Select ```serial port steup``` and configure serial device as the corresponding board, ```Bps/Par/Bits``` is ```115200 8N1```.
 
@@ -132,6 +134,8 @@ Select ```serial port steup``` and configure serial device as the corresponding 
 * [RVOS](https://github.com/plctlab/riscv-operating-system-mooc)
 
 * [xv6-riscv](https://github.com/mit-pdos/xv6-riscv)
+
+* [Computer Organization and Design RISC-V Edition](https://book.douban.com/subject/27103952/)
 
 ## Sources
 
