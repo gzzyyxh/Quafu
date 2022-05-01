@@ -28,32 +28,32 @@ Falco is a small soc which has a certain number of peripherals mounted on the wi
 
 * Address space(wishbone B2):
 
-                    |----0xffff_ffff----|
-                    |                   |
-                    |                   |
-                    |                   |
-                    |                   |
-                    |                   |
-                    |      unused       |
-                    |                   |
-                    |                   |
-                    |                   |
-                    |                   |
-                    |                   |
-                    |                   |
-                    |-------------------| <--- 0x6000_0000
-                    |        ram        |
-                    |-------------------| <--- 0x5000_0000
-                    |       clint       |
-                    |-------------------| <--- 0x4000_0000
-                    |        plic       |
-                    |-------------------| <--- 0x3000_0000
-                    |        gpio       |
-                    |-------------------| <--- 0x2000_0000
-                    |        uart       |
-                    |-------------------| <--- 0x1000_0000
-                    |        rom        |
-                    |-------------------| <--- 0x0000_0000
+                            |----0xffff_ffff----|
+                            |                   |
+                            |                   |
+                            |                   |
+                            |                   |
+                            |                   |
+                            |      unused       |
+                            |                   |
+                            |                   |
+                            |                   |
+                            |                   |
+                            |                   |
+                            |                   |
+                            |-------------------| <--- 0x6000_0000
+                            |        ram        |
+                            |-------------------| <--- 0x5000_0000
+                            |       clint       |
+                            |-------------------| <--- 0x4000_0000
+                            |        plic       |
+                            |-------------------| <--- 0x3000_0000
+                            |        gpio       |
+                            |-------------------| <--- 0x2000_0000
+                            |        uart       |
+                            |-------------------| <--- 0x1000_0000
+                            |        rom        |
+                            |-------------------| <--- 0x0000_0000
 
 * ...
 
@@ -81,19 +81,21 @@ Falco is a small soc which has a certain number of peripherals mounted on the wi
 
 ## Geting Started
 
-```git clone https://github.com/gzzyyxh/Falco```
+```$git clone https://github.com/gzzyyxh/Falco```
 
 Synthesis via Quartus Prime
 
-```cd cpu```
+```$cd cpu```
 
 **Notice**
 
 * Your FPGA board must meet the following conditions:
 
-```logic elements >= 10,877```
 
-```registers >= 4,155```
+$ logic elements >= 10,877
+
+$ registers >= 4,155
+
 
 * ROM and RAM are implemented using Altera IP core. You should pay attention to this.
 
@@ -111,7 +113,7 @@ Connecting serial port equipment
 
 ```sudo minicom -s```
 
-Select ```serial port steup``` and configure serial device as the corresponding board, Bps/Par/Bits is "115200 8N1".
+Select ```serial port steup``` and configure serial device as the corresponding board, ```Bps/Par/Bits``` is ```115200 8N1```.
 
 ```sudo minicom```
 
