@@ -2,6 +2,12 @@
 
 Quafu is a small soc which has a certain number of peripherals mounted on the [wishbone bus](https://opencores.org/projects/wb_conmax), and its core is a 32-bit pipeline and sequential processor written in verilog(for running [RVOS](https://github.com/plctlab/riscv-operating-system-mooc)).
 
+## Overview
+
+![architecture](./img/architecture.png)
+
+*The above figure does not show all the details*
+
 ## Implemented ISAs
 
 * RV32I
@@ -73,7 +79,7 @@ Quafu is a small soc which has a certain number of peripherals mounted on the [w
 
 * Replace with AXI4
 
-* MMU(Sv32, for running xv6-riscv or others)
+* MMU(Sv32 paging, for running xv6-riscv or others)
 
 * ...
 
