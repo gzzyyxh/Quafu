@@ -6,7 +6,7 @@ Quafu is a small soc which has a certain number of peripherals mounted on the [w
 
 ![architecture](./img/architecture.png)
 
-*The above figure does not show all the details*
+*The above figure does not show all the details. Click [here](https://github.com/gzzyyxh/Falco/raw/main/img/architecture.png) to See more clearly*
 
 ## Implemented ISAs
 
