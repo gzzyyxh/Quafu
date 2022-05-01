@@ -131,6 +131,8 @@ Select ```serial port steup``` and configure serial device as the corresponding 
 
 ```$sudo minicom```
 
+Then you will see
+
 ![welcome to Falco](./img/welcome.png)
 
 ## Refrences
