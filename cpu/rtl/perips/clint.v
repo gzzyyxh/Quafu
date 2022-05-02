@@ -70,28 +70,28 @@ module clint(
 	
 	always @ (*) begin
 		if(wb_rst_i == 1'b1) begin
-			Interrupt <= 1'b0;
-			Exception_code <= {3'b0, 28'h0000000};
-			software_interrupt_already <= 1'b0;
+			Interrupt = 1'b0;
+			Exception_code = {3'b0, 28'h0000000};
+			software_interrupt_already = 1'b0;
 		end else begin
 			if((mtime >= mtimecmp) &&
 					(csr_mstatus[3] == 1'b1) &&			// global interrupts - mstatus.MIE
 								(csr_mie[7] == 1'b1))begin				// timer interrupts - mie.MTIE
-				Interrupt <= 1'b1;
-				Exception_code <= {3'b0, 28'h0000007};
+				Interrupt = 1'b1;
+				Exception_code = {3'b0, 28'h0000007};
 			end else if((msip == 32'h00000001) &&
 								(csr_mstatus[3] == 1'b1) &&			// global interrupts - mstatus.MIE
 									(csr_mie[3] == 1'b1)) begin				// software interrupts - mie.MSIE
-				Interrupt <= 1'b1;
-				Exception_code <= {3'b0, 28'h0000000};
+				Interrupt = 1'b1;
+				Exception_code = {3'b0, 28'h0000000};
 				software_interrupt_already <= 1'b1;
 			end else begin
-				Interrupt <= 1'b0;
-				Exception_code <= {3'b0, 28'h0000000};
+				Interrupt = 1'b0;
+				Exception_code = {3'b0, 28'h0000000};
 			end
 		end
 		if(msip == 32'h00000000) begin
-			software_interrupt_already <= 1'b0;
+			software_interrupt_already = 1'b0;
 		end
 	end
 	

@@ -116,7 +116,7 @@ module ex(
   
   always @ (*) begin
 		if(rst == `RstEnable) begin
-			trapassert <= `TrapNotAssert;
+			trapassert = `TrapNotAssert;
 		end else begin
 		
 		end
@@ -125,28 +125,28 @@ module ex(
 	
 	always @ (*) begin
 		if(rst == `RstEnable) begin
-			logicout <= `ZeroWord;
-			arithmeticres <= `ZeroWord;
+			logicout = `ZeroWord;
+			arithmeticres = `ZeroWord;
 		end else begin
 			case (aluop_i)
 				`EXE_OR_OP:			begin
-					logicout <= reg1_i | reg2_i;
+					logicout = reg1_i | reg2_i;
 				end
 				`EXE_AND_OP:		begin
-					logicout <= reg1_i & reg2_i;
+					logicout = reg1_i & reg2_i;
 				end
 				`EXE_XOR_OP:		begin
-					logicout <= reg1_i ^ reg2_i;
+					logicout = reg1_i ^ reg2_i;
 				end
 				`EXE_SLT_OP, `EXE_SLTU_OP:		begin
-					arithmeticres <= reg1_lt_reg2;
+					arithmeticres = reg1_lt_reg2;
 				end
 				`EXE_ADD_OP, `EXE_ADDI_OP, `EXE_SUB_OP:		begin
-					arithmeticres <= result_sum;
+					arithmeticres = result_sum;
 				end
 				default:				begin
-					logicout <= `ZeroWord;
-					arithmeticres <= `ZeroWord;
+					logicout = `ZeroWord;
+					arithmeticres = `ZeroWord;
 				end
 			endcase
 		end    //if
@@ -154,20 +154,20 @@ module ex(
 
 	always @ (*) begin
 		if(rst == `RstEnable) begin
-			shiftres <= `ZeroWord;
+			shiftres = `ZeroWord;
 		end else begin
 			case (aluop_i)
 				`EXE_SLL_OP:			begin
-					shiftres <= reg1_i << reg2_i[4:0] ;
+					shiftres = reg1_i << reg2_i[4:0] ;
 				end
 				`EXE_SRL_OP:		begin
-					shiftres <= reg1_i >> reg2_i[4:0];
+					shiftres = reg1_i >> reg2_i[4:0];
 				end
 				`EXE_SRA_OP:		begin
-					shiftres <= ({32{reg1_i[31]}} << (6'd32-{1'b0, reg2_i[4:0]})) | reg1_i >> reg2_i[4:0];
+					shiftres = ({32{reg1_i[31]}} << (6'd32-{1'b0, reg2_i[4:0]})) | reg1_i >> reg2_i[4:0];
 				end
 				default:				begin
-					shiftres <= `ZeroWord;
+					shiftres = `ZeroWord;
 				end
 			endcase
 		end    //if
@@ -175,15 +175,15 @@ module ex(
 
 	always @ (*) begin
 		if(rst == `RstEnable) begin
-			mulres <= {`ZeroWord,`ZeroWord};
+			mulres = {`ZeroWord,`ZeroWord};
 		end else if ((aluop_i == `EXE_MUL_OP) || (aluop_i == `EXE_MULH_OP) || (aluop_i == `EXE_MULHSU_OP))begin
 			if(reg1_i[31] ^ reg2_i[31] == 1'b1) begin
-				mulres <= ~hilo_temp + 1;
+				mulres = ~hilo_temp + 1;
 			end else begin
-			  mulres <= hilo_temp;
+			  mulres = hilo_temp;
 			end
 		end else begin
-				mulres <= hilo_temp;
+				mulres = hilo_temp;
 		end
 	end
 	
@@ -194,58 +194,58 @@ module ex(
   //DIV、DIVU指令	
 	always @ (*) begin
 		if(rst == `RstEnable) begin
-			stallreq_for_div <= `NoStop;
-			div_opdata1_o <= `ZeroWord;
-			div_opdata2_o <= `ZeroWord;
-			div_start_o <= `DivStop;
-			signed_div_o <= 1'b0;
+			stallreq_for_div = `NoStop;
+			div_opdata1_o = `ZeroWord;
+			div_opdata2_o = `ZeroWord;
+			div_start_o = `DivStop;
+			signed_div_o = 1'b0;
 		end else begin
-			stallreq_for_div <= `NoStop;
-			div_opdata1_o <= `ZeroWord;
-			div_opdata2_o <= `ZeroWord;
-			div_start_o <= `DivStop;
-			signed_div_o <= 1'b0;	
+			stallreq_for_div = `NoStop;
+			div_opdata1_o = `ZeroWord;
+			div_opdata2_o = `ZeroWord;
+			div_start_o = `DivStop;
+			signed_div_o = 1'b0;	
 			case (aluop_i) 
 				`EXE_DIV_OP, `EXE_REM_OP:		begin
 					if(div_ready_i == `DivResultNotReady) begin
-						div_opdata1_o <= reg1_i;
-						div_opdata2_o <= reg2_i;
-						div_start_o <= `DivStart;
-						signed_div_o <= 1'b1;						//有符号除法
-						stallreq_for_div <= `Stop;
+						div_opdata1_o = reg1_i;
+						div_opdata2_o = reg2_i;
+						div_start_o = `DivStart;
+						signed_div_o = 1'b1;						//有符号除法
+						stallreq_for_div = `Stop;
 					end else if(div_ready_i == `DivResultReady) begin
-						div_opdata1_o <= reg1_i;
-						div_opdata2_o <= reg2_i;
-						div_start_o <= `DivStop;
-						signed_div_o <= 1'b1;						//有符号除法
-						stallreq_for_div <= `NoStop;
+						div_opdata1_o = reg1_i;
+						div_opdata2_o = reg2_i;
+						div_start_o = `DivStop;
+						signed_div_o = 1'b1;						//有符号除法
+						stallreq_for_div = `NoStop;
 					end else begin						
-						div_opdata1_o <= `ZeroWord;
-						div_opdata2_o <= `ZeroWord;
-						div_start_o <= `DivStop;
-						signed_div_o <= 1'b0;						//无符号除法
-						stallreq_for_div <= `NoStop;
+						div_opdata1_o = `ZeroWord;
+						div_opdata2_o = `ZeroWord;
+						div_start_o = `DivStop;
+						signed_div_o = 1'b0;						//无符号除法
+						stallreq_for_div = `NoStop;
 					end					
 				end
 				`EXE_DIVU_OP, `EXE_REMU_OP:		begin
 					if(div_ready_i == `DivResultNotReady) begin
-						div_opdata1_o <= reg1_i;
-						div_opdata2_o <= reg2_i;
-						div_start_o <= `DivStart;
-						signed_div_o <= 1'b0;
-						stallreq_for_div <= `Stop;
+						div_opdata1_o = reg1_i;
+						div_opdata2_o = reg2_i;
+						div_start_o = `DivStart;
+						signed_div_o = 1'b0;
+						stallreq_for_div = `Stop;
 					end else if(div_ready_i == `DivResultReady) begin
-						div_opdata1_o <= reg1_i;
-						div_opdata2_o <= reg2_i;
-						div_start_o <= `DivStop;
-						signed_div_o <= 1'b0;
-						stallreq_for_div <= `NoStop;
+						div_opdata1_o = reg1_i;
+						div_opdata2_o = reg2_i;
+						div_start_o = `DivStop;
+						signed_div_o = 1'b0;
+						stallreq_for_div = `NoStop;
 					end else begin						
-						div_opdata1_o <= `ZeroWord;
-						div_opdata2_o <= `ZeroWord;
-						div_start_o <= `DivStop;
-						signed_div_o <= 1'b0;
-						stallreq_for_div <= `NoStop;
+						div_opdata1_o = `ZeroWord;
+						div_opdata2_o = `ZeroWord;
+						div_start_o = `DivStop;
+						signed_div_o = 1'b0;
+						stallreq_for_div = `NoStop;
 					end					
 				end
 				default: begin
@@ -256,110 +256,110 @@ module ex(
 	
  always @ (*) begin
 	if(rst == `RstEnable) begin
-		moveres <= `ZeroWord;
-		csr_reg_write_addr_o <= 12'b000000000000;
-		csr_reg_we_o <= `WriteDisable;
-		csr_reg_data_o <= `ZeroWord;
+		moveres = `ZeroWord;
+		csr_reg_write_addr_o = 12'b000000000000;
+		csr_reg_we_o = `WriteDisable;
+		csr_reg_data_o = `ZeroWord;
 	end else begin
-		csr_reg_read_addr_o <= inst_i[31:20];
-		csr_reg_write_addr_o <= inst_i[31:20];
-		//csr_reg_we_o <= `WriteEnable;					//	不能在此处拉高（当aluop还没有确定时），若拉高则会导致逻辑操作的立即数被当作csr写操作的地址
+		csr_reg_read_addr_o = inst_i[31:20];
+		csr_reg_write_addr_o = inst_i[31:20];
+		//csr_reg_we_o = `WriteEnable;					//	不能在此处拉高（当aluop还没有确定时），若拉高则会导致逻辑操作的立即数被当作csr写操作的地址
 		case(aluop_i)
 			`EXE_CSRRC_OP:		begin
-				csr_reg_we_o <= `WriteEnable;
+				csr_reg_we_o = `WriteEnable;
 				if(mem_csr_reg_we == `WriteEnable &&
 					mem_csr_reg_write_addr == inst_i[31:20]) begin
-						csr_reg_data_o <= reg1_i & mem_csr_reg_data;
-						moveres <= mem_csr_reg_data;	
+						csr_reg_data_o = reg1_i & mem_csr_reg_data;
+						moveres = mem_csr_reg_data;	
 				end else if(wb_csr_reg_we == `WriteEnable &&
 								wb_csr_reg_write_addr == inst_i[31:20]) begin
-						csr_reg_data_o <= reg1_i & wb_csr_reg_data;
-						moveres <= wb_csr_reg_data;	
+						csr_reg_data_o = reg1_i & wb_csr_reg_data;
+						moveres = wb_csr_reg_data;	
 				end else begin
-					csr_reg_data_o <= (~reg1_i) & csr_reg_data_i;
-					moveres <= csr_reg_data_i;	
+					csr_reg_data_o = (~reg1_i) & csr_reg_data_i;
+					moveres = csr_reg_data_i;	
 				end
 			end
 			`EXE_CSRRS_OP:		begin
-				csr_reg_we_o <= `WriteEnable;
+				csr_reg_we_o = `WriteEnable;
 				if(mem_csr_reg_we == `WriteEnable &&
 					mem_csr_reg_write_addr == inst_i[31:20]) begin
-						csr_reg_data_o <= reg1_i | mem_csr_reg_data;
-						moveres <= mem_csr_reg_data;
+						csr_reg_data_o = reg1_i | mem_csr_reg_data;
+						moveres = mem_csr_reg_data;
 				end else if(wb_csr_reg_we == `WriteEnable &&
 								wb_csr_reg_write_addr == inst_i[31:20]) begin
-						csr_reg_data_o <= reg1_i | wb_csr_reg_data;
-						moveres <= wb_csr_reg_data;
+						csr_reg_data_o = reg1_i | wb_csr_reg_data;
+						moveres = wb_csr_reg_data;
 				end else begin
-					csr_reg_data_o <= reg1_i | csr_reg_data_i;
-					moveres <= csr_reg_data_i;
+					csr_reg_data_o = reg1_i | csr_reg_data_i;
+					moveres = csr_reg_data_i;
 				end
 			end
 			`EXE_CSRRW_OP:		begin
-				csr_reg_we_o <= `WriteEnable;
-				csr_reg_data_o <= reg1_i;
+				csr_reg_we_o = `WriteEnable;
+				csr_reg_data_o = reg1_i;
 				if(mem_csr_reg_we == `WriteEnable &&
 					mem_csr_reg_write_addr == inst_i[31:20]) begin
-						moveres <= mem_csr_reg_data;
+						moveres = mem_csr_reg_data;
 				end else if(wb_csr_reg_we == `WriteEnable &&
 								wb_csr_reg_write_addr == inst_i[31:20]) begin
-						moveres <= wb_csr_reg_data;
+						moveres = wb_csr_reg_data;
 				end else begin
-					moveres <= csr_reg_data_i;
+					moveres = csr_reg_data_i;
 				end
 			end
 			default:		begin
-				csr_reg_we_o <= `WriteDisable;
+				csr_reg_we_o = `WriteDisable;
 			end
 		endcase
 	end
  end
 
  always @ (*) begin
-	 wd_o <= wd_i;	 	 	
-	 wreg_o <= wreg_i;
+	 wd_o = wd_i;	 	 	
+	 wreg_o = wreg_i;
 	 case ( alusel_i ) 
 	 	`EXE_RES_LOGIC:		begin
 			case(aluop_i)
 				`EXE_OR_OP, `EXE_AND_OP, `EXE_XOR_OP: begin
-						wdata_o <= logicout;
+						wdata_o = logicout;
 				end
 				`EXE_CSRRC_OP, `EXE_CSRRS_OP, `EXE_CSRRW_OP: begin
-						wdata_o <= moveres;
+						wdata_o = moveres;
 				end
 			endcase
 	 	end
 	 	`EXE_RES_SHIFT:		begin
-	 		wdata_o <= shiftres;
+	 		wdata_o = shiftres;
 	 	end
 		`EXE_RES_ARITHMETIC:	begin
-			wdata_o <= arithmeticres;
+			wdata_o = arithmeticres;
 		end
 		`EXE_RES_MUL:		begin
 			case(aluop_i)
 				`EXE_MUL_OP:		begin
-					wdata_o <= mulres[31:0];
+					wdata_o = mulres[31:0];
 				end
 				`EXE_MULH_OP, `EXE_MULHU_OP, `EXE_MULHSU_OP:		begin
-					wdata_o <= mulres[63:32];
+					wdata_o = mulres[63:32];
 				end
 			endcase
 		end
 		`EXE_RES_DIV:		begin
 			case(aluop_i)
 				`EXE_DIV_OP, `EXE_DIVU_OP:		begin
-					wdata_o <= div_result_i[31:0];
+					wdata_o = div_result_i[31:0];
 				end
 				`EXE_REM_OP, `EXE_REMU_OP:		begin
-					wdata_o <= div_result_i[63:32];
+					wdata_o = div_result_i[63:32];
 				end
 			endcase
 		end
 		`EXE_RES_JUMP_BRANCH:	begin
-			wdata_o <= link_address_i;
+			wdata_o = link_address_i;
 		end
 	 	default:					begin
-	 		wdata_o <= `ZeroWord;
+	 		wdata_o = `ZeroWord;
 	 	end
 	 endcase
  end	

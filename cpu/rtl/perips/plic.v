@@ -76,23 +76,23 @@ module plic(
 	
 	always @ (*) begin
 		if(wb_rst_i == 1'b1) begin
-			Interrupt <= 1'b0;
-			Exception_code <= {3'b0, 28'h0000000};
-			irq <= `ZeroWord;
+			Interrupt = 1'b0;
+			Exception_code = {3'b0, 28'h0000000};
+			irq = `ZeroWord;
 		end else begin
 			if((uart_int == 1'b1) && (priority[1] > threshold) && (enable[1] == 1'b1) &&
 							(csr_mstatus[3] == 1'b1) &&			// global interrupts - mstatus.MIE
 								(csr_mie[11] == 1'b1))begin				// externtal interrupts - mie.MEIE
-				Interrupt <= 1'b1;
-				Exception_code <= {3'b0, 28'h000000b};					// uart interrupt
-				irq <= 32'h00000001;
+				Interrupt = 1'b1;
+				Exception_code = {3'b0, 28'h000000b};					// uart interrupt
+				irq = 32'h00000001;
 			end else begin
-				Interrupt <= 1'b0;
-				Exception_code <= {3'b0, 28'h0000000};
+				Interrupt = 1'b0;
+				Exception_code = {3'b0, 28'h0000000};
 			end
 			if(complete == 1'b1) begin
-				Interrupt <= 1'b0;
-				Exception_code <= {3'b0, 28'h0000000};
+				Interrupt = 1'b0;
+				Exception_code = {3'b0, 28'h0000000};
 			end
 		end
 	end

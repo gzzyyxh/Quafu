@@ -218,68 +218,68 @@ module csr(
 			
 	always @ (*) begin
 		if(rst == `RstEnable) begin
-			data_o <= `ZeroWord;
+			data_o = `ZeroWord;
 		end else begin
 				case (raddr_i) 
 					`CSR_REG_FFLAGS:		begin
-						data_o <= fflags ;
+						data_o = fflags ;
 					end
 					`CSR_REG_FRM:	begin
-						data_o <= frm ;
+						data_o = frm ;
 					end
 					`CSR_REG_FCSR:	begin
-						data_o <= fcsr ;
+						data_o = fcsr ;
 					end
 					`CSR_REG_MSTATUS:	begin
-						data_o <= mstatus ;
+						data_o = mstatus ;
 					end
 					`CSR_REG_MISA:	begin
-						data_o <= misa ;
+						data_o = misa ;
 					end
 					`CSR_REG_MIE:	begin
-						data_o <= mie ;
+						data_o = mie ;
 					end
 					`CSR_REG_MTVEC:	begin
-						data_o <= mtvec ;
+						data_o = mtvec ;
 					end
 					`CSR_REG_MSCRATCH:	begin
-						data_o <= mscratch ;
+						data_o = mscratch ;
 					end
 					`CSR_REG_MEPC:	begin
-						data_o <= mepc ;
+						data_o = mepc ;
 					end
 					`CSR_REG_MCAUSE:	begin
-						data_o <= mcause ;
+						data_o = mcause ;
 					end
 					`CSR_REG_MTVAL:	begin
-						data_o <= mtval ;
+						data_o = mtval ;
 					end
 					`CSR_REG_MIP:	begin
-						data_o <= mip ;
+						data_o = mip ;
 					end
 					`CSR_REG_MCYCLE:	begin
-						data_o <= mcycle ;
+						data_o = mcycle ;
 					end
 					`CSR_REG_MCYCLEH:	begin
-						data_o <= mcycleh ;
+						data_o = mcycleh ;
 					end
 					`CSR_REG_MINSTRET:	begin
-						data_o <= minstret ;
+						data_o = minstret ;
 					end
 					`CSR_REG_MINSTRETH:	begin
-						data_o <= minstreth ;
+						data_o = minstreth ;
 					end
 					`CSR_REG_MVENDORID:	begin
-						data_o <= mvendorid ;
+						data_o = mvendorid ;
 					end
 					`CSR_REG_MARCHID:	begin
-						data_o <= marchid ;
+						data_o = marchid ;
 					end
 					`CSR_REG_MIMPID:	begin
-						data_o <= mimpid ;
+						data_o = mimpid ;
 					end
 					`CSR_REG_MHARTID:	begin
-						data_o <= mhartid ;
+						data_o = mhartid ;
 					end
 					default: 	begin
 					end			
