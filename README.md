@@ -71,6 +71,8 @@ Quafu is a small soc which has a certain number of peripherals mounted on the [w
 
 * flash controller
 
+* spi controller
+
 * supervisor modes
 
 * RV32A support
