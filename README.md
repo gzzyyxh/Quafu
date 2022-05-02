@@ -94,7 +94,7 @@ $sudo apt update
 
 $sudo apt install build-essential gcc make perl dkms git gcc-riscv64-unknown-elf
 
-$git clone https://github.com/gzzyyxh/Falco
+$git clone https://github.com/gzzyyxh/Quafu
 ```
 
 Synthesis via [Quartus Prime](https://www.intel.cn/content/www/cn/zh/software/programmable/quartus-prime/download.html)
