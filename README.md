@@ -85,7 +85,7 @@ Quafu is a small soc which has a certain number of peripherals mounted on the [w
 
 * ...
 
-    Due to lack of time, I will continue to fix existing <u>bugs</u> and complete the above plans after the end of this semester (July and August 2022).
+    Due to lack of time, I will continue to fix existing <u>bugs</u> and complete the above plans after the end of this semester (July and August 2022).$\underline{X}$
 
 ## Geting Started
 
