@@ -39,7 +39,7 @@ void start_kernel(void)
 	uart_puts("rrrrrrrrrrrrrrrrrrrrrrr      vvvvvvvvvvvvvvvvvvvvvvvv\n");
 	uart_puts("rrrrrrrrrrrrrrrrrrrrrrrrr  vvvvvvvvvvvvvvvvvvvvvvvvvv\n\n");
 	uart_puts("*********************\n");
-	uart_puts("* Welcome to Falco! *\n");
+	uart_puts("* Welcome to Quafu! *\n");
 	uart_puts("*********************\n");
 
 	page_init();
