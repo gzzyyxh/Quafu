@@ -1,3 +1,5 @@
+![license](https://badgen.net/badge/license/MIT/blue) ![linux](https://img.shields.io/badge/-linux-AAAAAA?style=flat&logo=linux) ![Windows](https://img.shields.io/badge/-Windows-AAAAAA?style=flat&logo=Windows)
+
 # Quafu
 
 Quafu is a small soc which has a certain number of peripherals mounted on the [wishbone bus](https://opencores.org/projects/wb_conmax), and its core is a 32-bit pipeline and sequential processor written in verilog(for running [RVOS](https://github.com/plctlab/riscv-operating-system-mooc)).
