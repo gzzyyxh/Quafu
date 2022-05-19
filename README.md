@@ -1,4 +1,4 @@
-![license](https://badgen.net/badge/license/MIT/blue) ![linux](https://img.shields.io/badge/-linux-AAAAAA?style=flat&logo=linux) ![Windows](https://img.shields.io/badge/-Windows-AAAAAA?style=flat&logo=Windows)
+[![license](https://badgen.net/badge/license/MIT/blue)](https://github.com/gzzyyxh/Quafu/blob/main/LICENSE) [![linux](https://img.shields.io/badge/-linux-AAAAAA?style=flat&logo=linux)](https://linux.org/) [![Windows](https://img.shields.io/badge/-Windows-AAAAAA?style=flat&logo=Windows)](https://www.microsoft.com/zh-cn/windows/)
 
 # Quafu
 
