@@ -161,4 +161,4 @@ Then you will see
 
 ## Postscript
 
-This interesting project was completed by me during the period when I was sealed in the dormitory building from March to April 2022. At the end of April, Fudan informed us to compress the semester and complete the teaching of this study in advance. Then I had to suspend many unfinished plans in the hope that I could make up for them during the summer vacation.
+This interesting project was completed by me during the period when I was sealed in the dormitory building from March to April 2022. At the end of April, Fudan informed us to compress the semester and complete the teaching of this study in advance. Then I had to suspend many unfinished plans in the hope that I could continue to complete it during the summer vacation.
