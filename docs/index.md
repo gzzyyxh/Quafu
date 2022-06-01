@@ -151,10 +151,14 @@ Then you will see
 
 * [Computer Organization and Design RISC-V Edition](https://book.douban.com/subject/27103952/)
 
-## Sources
+### Sources
 
 * [emulsiV](https://guillaume-savaton-eseo.github.io/emulsiV/)
 
 * [wishbone IP core](https://opencores.org/projects/wb_conmax)
 
 * [UART IP core](https://opencores.org/projects/uart6551)
+
+## Postscript
+
+This interesting project was completed by me during the period when I was sealed in the dormitory building from March to April 2022. At the end of April, Fudan informed us to compress the semester and end the class in advance. Then I had to suspend many unfinished plans in the hope that I could make up for them during the summer vacation.
