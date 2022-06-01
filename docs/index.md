@@ -34,32 +34,32 @@ Quafu is a small soc which has a certain number of peripherals mounted on the [w
 
 * Address space(wishbone B2):
 
-                                |----0xffff_ffff----|
-                                |                   |
-                                |                   |
-                                |                   |
-                                |                   |
-                                |                   |
-                                |      unused       |
-                                |                   |
-                                |                   |
-                                |                   |
-                                |                   |
-                                |                   |
-                                |                   |
-                                |-------------------| <--- 0x6000_0000
-                                |        ram        |
-                                |-------------------| <--- 0x5000_0000
-                                |       clint       |
-                                |-------------------| <--- 0x4000_0000
-                                |        plic       |
-                                |-------------------| <--- 0x3000_0000
-                                |        gpio       |
-                                |-------------------| <--- 0x2000_0000
-                                |        uart       |
-                                |-------------------| <--- 0x1000_0000
-                                |        rom        |
-                                |-------------------| <--- 0x0000_0000
+                  |----0xffff_ffff----|
+                  |                   |
+                  |                   |
+                  |                   |
+                  |                   |
+                  |                   |
+                  |      unused       |
+                  |                   |
+                  |                   |
+                  |                   |
+                  |                   |
+                  |                   |
+                  |                   |
+                  |-------------------| <--- 0x6000_0000
+                  |        ram        |
+                  |-------------------| <--- 0x5000_0000
+                  |       clint       |
+                  |-------------------| <--- 0x4000_0000
+                  |        plic       |
+                  |-------------------| <--- 0x3000_0000
+                  |        gpio       |
+                  |-------------------| <--- 0x2000_0000
+                  |        uart       |
+                  |-------------------| <--- 0x1000_0000
+                  |        rom        |
+                  |-------------------| <--- 0x0000_0000
 
 * ...
 
@@ -135,7 +135,7 @@ Select ```serial port steup``` and configure serial device as the corresponding 
 
 Then you will see
 
-![welcome to Falco](./img/welcome.png)
+![welcome to Falco](https://github.com/gzzyyxh/Quafu/raw/main/img/welcome.png)
 
 ### Refrences
 
