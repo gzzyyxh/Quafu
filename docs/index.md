@@ -1,6 +1,6 @@
 ## Introduction
 
-Quafu is a small soc which has a certain number of peripherals mounted on the [wishbone bus](https://opencores.org/projects/wb_conmax), and its core is a 32-bit pipeline and sequential processor written in verilog(for running [RVOS](https://github.com/plctlab/riscv-operating-system-mooc)).
+[Quafu](https://github.com/gzzyyxh/Quafu) is a small SoC which has a certain number of peripherals mounted on the [wishbone bus](https://opencores.org/projects/wb_conmax), and its core is a 32-bit pipeline and sequential processor written in verilog(for running [RVOS](https://github.com/plctlab/riscv-operating-system-mooc)).
 
 ### Overview
 
@@ -161,4 +161,4 @@ Then you will see
 
 ## Postscript
 
-This interesting project was completed by me during the period when I was sealed in the dormitory building from March to April 2022. At the end of April, Fudan informed us to compress the semester and end the class in advance. Then I had to suspend many unfinished plans in the hope that I could make up for them during the summer vacation.
+This interesting project was completed by me during the period when I was sealed in the dormitory building from March to April 2022. At the end of April, Fudan informed us to compress the semester and complete the teaching of this study in advance. Then I had to suspend many unfinished plans in the hope that I could make up for them during the summer vacation.
